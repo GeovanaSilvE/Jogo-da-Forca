@@ -194,3 +194,28 @@ letraInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") verificarLetra();
 });
 reiniciarBtn.addEventListener("click", iniciarJogo);
+
+const novaPalavraInput = document.getElementById("nova-palavra");
+const novaDicaInput = document.getElementById("nova-dica");
+const adicionarBtn = document.getElementById("adicionar-btn");
+const mensagemAdicao = document.getElementById("mensagem-adicao");
+
+adicionarBtn.addEventListener("click", () => {
+  const palavra = novaPalavraInput.value.trim().toLowerCase();
+  const dica = novaDicaInput.value.trim();
+
+  if (palavra && dica && /^[a-záâãéêíóôõúç\s]+$/i.test(palavra)) {
+    palavrasRestantes.push({ palavra, dica });
+    mensagemAdicao.textContent = `✅ Palavra "${palavra}" adicionada com sucesso!`;
+    novaPalavraInput.value = "";
+    novaDicaInput.value = "";
+  } else {
+    mensagemAdicao.textContent = "⚠️ Preencha os dois campos corretamente!";
+    mensagemAdicao.style.color = "red";
+  }
+
+  setTimeout(() => {
+    mensagemAdicao.textContent = "";
+    mensagemAdicao.style.color = "green";
+  }, 3000);
+});
