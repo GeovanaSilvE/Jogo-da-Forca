@@ -1,2 +1,3 @@
 # Jogo-da-Forca
-Linguagens Formais e Autômatos
+Atividade Faculdade: Linguagens Formais e Autômatos
+
